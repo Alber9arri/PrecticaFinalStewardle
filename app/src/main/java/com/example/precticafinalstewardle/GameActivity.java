@@ -1,7 +1,11 @@
 package com.example.precticafinalstewardle;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+
 import java.util.Set;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -9,8 +13,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
     private static final String BASE_URL = "https://stewardle.com/";
@@ -19,7 +25,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_game);
         // Configura Retrofit
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -42,6 +48,7 @@ public class GameActivity extends AppCompatActivity {
                     for (String key : keys) {
                         drivers.add(jsonObject.get(key));
                     }
+                    playGame();
                 } else {
                     //Manejar error de respuesta
                 }
@@ -52,5 +59,11 @@ public class GameActivity extends AppCompatActivity {
                 //Manejar error de peticion
             }
         });
+    }
+    private void playGame() {
+        Random random = new Random();
+        int randomIndex = random.nextInt(drivers.size());
+        JsonElement driver = drivers.get(randomIndex);
+        Log.e(TAG, driver.toString());
     }
 }
