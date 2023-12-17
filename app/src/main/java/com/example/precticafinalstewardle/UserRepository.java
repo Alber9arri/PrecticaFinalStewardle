@@ -1,6 +1,6 @@
 package com.example.precticafinalstewardle;
 
-// UserRepository.java
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
