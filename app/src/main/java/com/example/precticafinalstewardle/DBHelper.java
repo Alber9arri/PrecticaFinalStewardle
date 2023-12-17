@@ -1,6 +1,6 @@
 package com.example.precticafinalstewardle;
 
-// DBHelper.java
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;

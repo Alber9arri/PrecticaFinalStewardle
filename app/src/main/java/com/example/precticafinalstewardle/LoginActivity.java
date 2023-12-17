@@ -1,4 +1,3 @@
-// MainActivity.java
 package com.example.precticafinalstewardle;
 
 import android.content.Intent;
@@ -35,13 +34,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String username = editTextUsername.getText().toString();
-                String password = editTextPassword.getText().toString();
+                String password = HashPassword.sha256(editTextPassword.getText().toString());
 
                 if (userRepository.checkUser(username, password)) {
                     // Inicio de sesión exitoso
                     Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
-                    // Cambiar a la actividad SuccessfulLoginActivity
+                    // Cambia a la pantalla de juego
                     Intent intent = new Intent(LoginActivity.this, GameActivity.class);
                     startActivity(intent);
                 } else {
@@ -59,9 +58,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void addUserExample() {
         // Verificar si el usuario "user" ya existe en la base de datos
-        if (!userRepository.checkUser("user", "user")) {
+
+        if (!userRepository.checkUser("user", HashPassword.sha256("user"))) {
             // Si no existe, agregarlo
-            User user = new User("user", "user");
+            User user = new User("user", HashPassword.sha256("user"));
             userRepository.addUser(user);
         }
     }

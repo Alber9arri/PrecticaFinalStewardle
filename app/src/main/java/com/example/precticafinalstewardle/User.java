@@ -1,4 +1,3 @@
-// User.java
 package com.example.precticafinalstewardle;
 
 public class User {
