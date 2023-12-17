@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">PrecticaFinalStewardle</string>
+    <string name="app_name">PracticaFinalStewardle</string>
+    <string name="title">Stewardle</string>
+    <string name="driver">Piloto</string>
+    <string name="flag">Bandera</string>
+    <string name="team">Equipo</string>
+    <string name="number">Numero</string>
+    <string name="age">Edad</string>
+    <string name="debut">Debut</string>
+    <string name="wins">Victorias</string>
+    <string name="hint_driver">Introduce un piloto</string>
+    <string name="check">Comprobar</string>
 </resources>

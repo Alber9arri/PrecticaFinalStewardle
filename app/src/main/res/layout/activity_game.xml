@@ -1,15 +1,417 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#7EAEFF"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#d444"
+        android:gravity="center"
+        android:text="@string/title"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/namesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Driver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/driver"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/Flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/flag"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/Team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/team"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/Num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/number"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/Age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/age"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/Debut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/debut"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/Wins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/wins"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/driver1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namesLayout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/driver1name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
+
+        <com.caverock.androidsvg.SVGImageView
+            android:id="@+id/driver1flag"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/driver1team"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver1number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver1age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver1debut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver1wins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/driver2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/driver1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/driver2name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
+
+        <com.caverock.androidsvg.SVGImageView
+            android:id="@+id/driver2flag"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/driver2team"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver2number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver2age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver2debut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver2wins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/driver3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/driver2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/driver3name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
+
+        <com.caverock.androidsvg.SVGImageView
+            android:id="@+id/driver3flag"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/driver3team"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver3number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver3age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver3debut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver3wins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/driver4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/driver3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/driver4name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
+
+        <com.caverock.androidsvg.SVGImageView
+            android:id="@+id/driver4flag"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/driver4team"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver4number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver4age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver4debut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver4wins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/driver5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/driver4"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/driver5name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
+
+        <com.caverock.androidsvg.SVGImageView
+            android:id="@+id/driver5flag"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/driver5team"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver5number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver5age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver5debut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver5wins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/driver6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/driver5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/driver6name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white" />
+
+        <com.caverock.androidsvg.SVGImageView
+            android:id="@+id/driver6flag"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/driver6team"
+            android:layout_width="10dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver6number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver6age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver6debut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/driver6wins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/DriverInput"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/driver6"
+        android:completionThreshold="1"
+        android:dropDownHeight="wrap_content"
+        android:hint="@string/hint_driver"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_below="@id/DriverInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡INICIO DE SESIÓN EXITOSO!"
-        android:textSize="24sp"/>
+        android:onClick="check"
+        android:text="@string/check" />
 
-    <!-- Puedes agregar más elementos de diseño según tus necesidades -->
 
 </RelativeLayout>
