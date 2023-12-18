@@ -106,24 +106,31 @@ public class GameActivity extends AppCompatActivity {
         for(int i=0; i<intentos; i++){
             textView = findViewById(idCount);
             textView.setText("");
+            textView.setBackgroundColor(Color.WHITE);
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
+            textView.setBackgroundColor(Color.WHITE);
             idCount++;
             @SuppressLint("WrongViewCast") SVGImageView SVGimageView = findViewById(idCount);
             SVGimageView.setVisibility(View.INVISIBLE);
+            SVGimageView.setBackgroundColor(Color.WHITE);
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
+            textView.setBackgroundColor(Color.WHITE);
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
+            textView.setBackgroundColor(Color.WHITE);
             idCount++;
             @SuppressLint("WrongViewCast") ImageView imageView = findViewById(idCount);
             imageView.setVisibility(View.INVISIBLE);
+            imageView.setBackgroundColor(Color.WHITE);
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
+            textView.setBackgroundColor(Color.WHITE);
             idCount++;
             idCount++;
         }
@@ -136,6 +143,7 @@ public class GameActivity extends AppCompatActivity {
         driverInput.setVisibility(View.VISIBLE);
     }
 
+    @SuppressLint("ResourceAsColor")
     public void check(View v) throws SVGParseException {
         String input = driverInput.getText().toString().trim();
         Log.e(TAG, input);
@@ -149,22 +157,25 @@ public class GameActivity extends AppCompatActivity {
                     TextView textView = findViewById(idCount);
                     textView.setText(String.valueOf(drivers.get(i).getAsJsonObject().get("age")));
                     if (drivers.get(i).getAsJsonObject().get("age").getAsInt() < driver.getAsJsonObject().get("age").getAsInt())
-                        textView.setTextColor(Color.RED);
+                        textView.setBackgroundColor(Color.RED);
                     else if (drivers.get(i).getAsJsonObject().get("age").getAsInt() > driver.getAsJsonObject().get("age").getAsInt())
-                        textView.setTextColor(Color.BLACK);
-                    else textView.setTextColor(Color.GREEN);
+                        textView.setBackgroundColor(Color.BLUE);
+                    else textView.setBackgroundColor(Color.GREEN);
                     idCount++;
                     textView = findViewById(idCount);
                     textView.setText(String.valueOf(drivers.get(i).getAsJsonObject().get("firstYear")));
-                    if (drivers.get(i).getAsJsonObject().get("firstYear").getAsInt() < driver.getAsJsonObject().get("firstYear").getAsInt())
-                        textView.setTextColor(Color.RED);
-                    else if (drivers.get(i).getAsJsonObject().get("firstYear").getAsInt() > driver.getAsJsonObject().get("firstYear").getAsInt())
-                        textView.setTextColor(Color.BLACK);
-                    else textView.setTextColor(Color.GREEN);
+                    Log.e(TAG, String.valueOf(driver.getAsJsonObject().get("firstYear").getAsInt()));
+                    Log.e(TAG, String.valueOf(drivers.get(i).getAsJsonObject().get("firstYear").getAsInt()));
+                    if (drivers.get(i).getAsJsonObject().get("firstYear").getAsInt() < driver.getAsJsonObject().get("firstYear").getAsInt()) textView.setBackgroundColor(Color.RED);
+                    else if (drivers.get(i).getAsJsonObject().get("firstYear").getAsInt() > driver.getAsJsonObject().get("firstYear").getAsInt()) textView.setBackgroundColor(Color.BLUE);
+                    else textView.setBackgroundColor(Color.GREEN);
                     idCount++;
                     @SuppressLint("WrongViewCast") SVGImageView svgImageView = findViewById(idCount);
                     SVG svg = SVG.getFromInputStream(getResources().openRawResource(getResources().getIdentifier(drivers.get(i).getAsJsonObject().get("nationality").toString().replaceAll("\"", ""), "raw", getPackageName())));
                     svgImageView.setSVG(svg);
+                    if (drivers.get(i).getAsJsonObject().get("nationality").toString().replaceAll("\"", "").equals(driver.getAsJsonObject().get("nationality").toString().replaceAll("\"", "")))
+                        svgImageView.setBackgroundColor(Color.GREEN);
+                    else svgImageView.setBackgroundColor(Color.RED);
                     svgImageView.setVisibility(View.VISIBLE);
                     idCount++;
                     textView = findViewById(idCount);
@@ -173,29 +184,46 @@ public class GameActivity extends AppCompatActivity {
                     textView = findViewById(idCount);
                     textView.setText(drivers.get(i).getAsJsonObject().get("permanentNumber").toString().replaceAll("\"", ""));
                     if (Integer.parseInt(drivers.get(i).getAsJsonObject().get("permanentNumber").toString().replaceAll("\"", "")) < Integer.parseInt(driver.getAsJsonObject().get("permanentNumber").toString().replaceAll("\"", "")))
-                        textView.setTextColor(Color.RED);
+                        textView.setBackgroundColor(Color.RED);
                     else if (Integer.parseInt(drivers.get(i).getAsJsonObject().get("permanentNumber").toString().replaceAll("\"", "")) > Integer.parseInt(driver.getAsJsonObject().get("permanentNumber").toString().replaceAll("\"", "")))
-                        textView.setTextColor(Color.BLACK);
-                    else textView.setTextColor(Color.GREEN);
+                        textView.setBackgroundColor(Color.BLUE);
+                    else textView.setBackgroundColor(Color.GREEN);
                     idCount++;
                     @SuppressLint("WrongViewCast") ImageView imageView = findViewById(idCount);
                     imageView.setImageResource(getResources().getIdentifier(drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().get(drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().size() - 1).toString().replaceAll("\"", ""), "drawable", getPackageName()));
+                    if(driver.getAsJsonObject().get("constructors").getAsJsonArray().get(driver.getAsJsonObject().get("constructors").getAsJsonArray().size()-1).toString().replaceAll("\"", "").equals(drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().get(drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().size()-1).toString().replaceAll("\"", ""))){
+                        imageView.setBackgroundColor(Color.GREEN);
+                    }
+                    else{
+                        for(int j = 0; j<driver.getAsJsonObject().get("constructors").getAsJsonArray().size(); j++){
+                            if(driver.getAsJsonObject().get("constructors").getAsJsonArray().get(j).toString().replaceAll("\"", "").equals(drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().get(drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().size()-1).toString().replaceAll("\"", ""))){
+                                imageView.setBackgroundColor(Color.BLUE);
+                                break;
+                            }else imageView.setBackgroundColor(Color.RED);
+                        }
+                    }
+
                     imageView.setVisibility(View.VISIBLE);
                     idCount++;
                     textView = findViewById(idCount);
                     textView.setText(String.valueOf(drivers.get(i).getAsJsonObject().get("wins")));
                     if (drivers.get(i).getAsJsonObject().get("wins").getAsInt() < driver.getAsJsonObject().get("wins").getAsInt())
-                        textView.setTextColor(Color.RED);
+                        textView.setBackgroundColor(Color.RED);
                     else if (drivers.get(i).getAsJsonObject().get("wins").getAsInt() > driver.getAsJsonObject().get("wins").getAsInt())
-                        textView.setTextColor(Color.BLACK);
-                    else textView.setTextColor(Color.GREEN);
+                        textView.setBackgroundColor(Color.BLUE);
+                    else textView.setBackgroundColor(Color.GREEN);
                     idCount++;
                     idCount++;
-                    driverInput.setText("");
+                    ArrayAdapter<String> adapter = (ArrayAdapter<String>) driverInput.getAdapter();
+                    if (adapter != null) {
+                        adapter.remove(drivers.get(i).getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+drivers.get(i).getAsJsonObject().get("lastName").toString().replaceAll("\"", ""));
+                        adapter.notifyDataSetChanged(); // Notifica al adaptador que los datos han cambiado
+                    }
                     intentos++;
                 }
             }
-                driverName = driver.getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+driver.getAsJsonObject().get("lastName").toString().replaceAll("\"", "");
+            driverInput.setText("");
+            driverName = driver.getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+driver.getAsJsonObject().get("lastName").toString().replaceAll("\"", "");
             if(input.equals(driverName)){
                 TextView textView = findViewById(R.id.message);
                 textView.setText(getString(R.string.you_win)+" En "+intentos+" intentos");

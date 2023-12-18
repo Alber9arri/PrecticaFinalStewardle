@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#7EAEFF"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/driver"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/Flag"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/flag"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/Team"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/team"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/Num"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/number"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/Age"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/age"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/Debut"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/debut"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/Wins"
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/wins"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -93,45 +93,56 @@
         <TextView
             android:id="@+id/driver1name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:gravity="center"
+            android:textColor="@color/black" />
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver1flag"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver1team"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/driver1number"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/driver1age"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/driver1debut"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/driver1wins"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
@@ -145,45 +156,56 @@
         <TextView
             android:id="@+id/driver2name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:gravity="center"
+            android:textColor="@color/black" />
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver2flag"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver2team"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/driver2number"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver2age"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver2debut"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver2wins"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -197,45 +219,56 @@
         <TextView
             android:id="@+id/driver3name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:gravity="center"
+            android:textColor="@color/black" />
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver3flag"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver3team"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/driver3number"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver3age"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver3debut"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver3wins"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -249,45 +282,56 @@
         <TextView
             android:id="@+id/driver4name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:gravity="center"
+            android:textColor="@color/black" />
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver4flag"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver4team"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/driver4number"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver4age"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver4debut"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver4wins"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -301,45 +345,56 @@
         <TextView
             android:id="@+id/driver5name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:gravity="center"
+            android:textColor="@color/black" />
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver5flag"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver5team"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/driver5number"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver5age"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver5debut"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver5wins"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
@@ -353,46 +408,56 @@
         <TextView
             android:id="@+id/driver6name"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="@color/white" />
+            android:gravity="center"
+            android:textColor="@color/black" />
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver6flag"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver6team"
             android:layout_width="10dp"
-            android:layout_height="50dp"
+            android:layout_height="48dp"
+            android:gravity="center"
             android:layout_weight="1" />
 
         <TextView
             android:id="@+id/driver6number"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver6age"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver6debut"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/driver6wins"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <AutoCompleteTextView
@@ -403,7 +468,7 @@
         android:completionThreshold="1"
         android:dropDownHeight="wrap_content"
         android:hint="@string/hint_driver"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:visibility="visible"
         />
 
@@ -431,8 +496,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        android:text="@string/game_over"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 
 
 </RelativeLayout>
