@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextUsername, editTextPassword;
-    private Button buttonLogin;
+    private Button buttonLogin, buttonRegister;
 
     private UserRepository userRepository;
 
@@ -23,29 +23,22 @@ public class LoginActivity extends AppCompatActivity {
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
+        buttonRegister = findViewById(R.id.buttonRegister);
 
         userRepository = new UserRepository(this);
         userRepository.open();
 
-        // Agregar un usuario de ejemplo al iniciar la aplicación
-        addUserExample();
-
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = editTextUsername.getText().toString();
-                String password = HashPassword.sha256(editTextPassword.getText().toString());
+                loginUser();
+            }
+        });
 
-                if (userRepository.checkUser(username, password)) {
-                    // Inicio de sesión exitoso
-                    Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-
-                    // Cambia a la pantalla de juego
-                    Intent intent = new Intent(LoginActivity.this, GameActivity.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(LoginActivity.this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerUser();
             }
         });
     }
@@ -56,13 +49,37 @@ public class LoginActivity extends AppCompatActivity {
         userRepository.close();
     }
 
-    private void addUserExample() {
-        // Verificar si el usuario "user" ya existe en la base de datos
+    private void loginUser() {
+        String username = editTextUsername.getText().toString();
+        String password = HashPassword.sha256(editTextPassword.getText().toString());
 
-        if (!userRepository.checkUser("user", HashPassword.sha256("user"))) {
+        if (userRepository.checkUser(username, password)) {
+            // Inicio de sesión exitoso
+            Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+
+            // Cambia a la pantalla de juego
+            Intent intent = new Intent(LoginActivity.this, GameActivity.class);
+            startActivity(intent);
+        } else {
+            Toast.makeText(LoginActivity.this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void registerUser() {
+        String inputUsername = editTextUsername.getText().toString();
+        String inputPassword = HashPassword.sha256(editTextPassword.getText().toString());
+
+        // Verificar si el usuario ya existe en la base de datos
+        if (!userRepository.checkUser(inputUsername, inputPassword)) {
             // Si no existe, agregarlo
-            User user = new User("user", HashPassword.sha256("user"));
+            User user = new User(inputUsername, inputPassword);
             userRepository.addUser(user);
+
+            // Mostrar un mensaje de registro exitoso
+            Toast.makeText(LoginActivity.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
+        } else {
+            // Mostrar un mensaje indicando que el usuario ya está registrado
+            Toast.makeText(LoginActivity.this, "El usuario ya está registrado", Toast.LENGTH_SHORT).show();
         }
     }
 }

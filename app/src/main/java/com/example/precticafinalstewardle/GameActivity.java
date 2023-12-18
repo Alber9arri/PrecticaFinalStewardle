@@ -104,7 +104,7 @@ public class GameActivity extends AppCompatActivity {
             else{
                 for(int i = 0; i<drivers.size(); i++){
                     driverName = drivers.get(i).getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+drivers.get(i).getAsJsonObject().get("lastName").toString().replaceAll("\"", "");
-                    if(input.equals(driverName+" ")){
+                    if(input.equals(driverName)){
                         Log.e(TAG, drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().get(drivers.get(i).getAsJsonObject().get("constructors").getAsJsonArray().size()-1).toString());
 
                         TextView textView = findViewById(idCount);
