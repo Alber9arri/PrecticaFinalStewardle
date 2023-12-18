@@ -10,4 +10,7 @@
     <string name="wins">Victorias</string>
     <string name="hint_driver">Introduce un piloto</string>
     <string name="check">Comprobar</string>
+    <string name="game_over">Perdiste. El piloto era </string>
+    <string name="you_win">Acertaste!! </string>
+    <string name="playAgain">Volver a jugar</string>
 </resources>
