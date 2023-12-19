@@ -468,7 +468,7 @@
         android:dropDownHeight="wrap_content"
         android:hint="@string/hint_driver"
         android:visibility="visible"
-        android:textColor="@color/white"
+        android:textColor="@color/text"
         android:theme="@style/AutoCompleteTextViewStyle"
         />
 

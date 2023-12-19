@@ -14,10 +14,22 @@
     <string name="you_win">Acertaste!! </string>
     <string name="playAgain">Volver a jugar</string>
     <string name="dark_mode">Modo oscuro</string>
-    <string name="dark_mode2">Activa o desactiva el modo oscuro</string>
+    <string name="dark_mode_summ">Activa o desactiva el modo oscuro</string>
     <string name="action_settings">Ajustes</string>
     <string name="action_game">Jugar</string>
     <string name="action_stats">Estadísticas</string>
     <string name="action_ranking">Ranking</string>
+    <string name="language">Idioma</string>
+    <string name="language_summ">Cambia el idioma</string>
+    <string name="language_dialog">Seleciona el idioma</string>
+    <string-array name="languages_entries">
+        <item>Español</item>
+        <item>Inglés</item>
+    </string-array>
 
+    <string-array name="languages_values">
+        <item>es</item> <!-- Valor para Inglés -->
+        <item>en</item> <!-- Valor para Español -->
+        <!-- Agrega más valores según sea necesario -->
+    </string-array>
 </resources>

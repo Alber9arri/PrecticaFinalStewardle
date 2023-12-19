@@ -3,6 +3,14 @@
     <CheckBoxPreference
         android:key="dark_mode"
         android:title="@string/dark_mode"
-        android:summary="@string/dark_mode2"
+        android:summary="@string/dark_mode_summ"
         android:defaultValue="false" />
+    <ListPreference
+        android:key="language"
+        android:title="@string/language"
+        android:summary="@string/language_summ"
+        android:dialogTitle="@string/language_dialog"
+        android:entries="@array/languages_entries"
+        android:entryValues="@array/languages_values"
+        android:defaultValue="en" />
 </PreferenceScreen>

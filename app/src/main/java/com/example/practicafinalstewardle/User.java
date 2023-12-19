@@ -1,4 +1,4 @@
-package com.example.precticafinalstewardle;
+package com.example.practicafinalstewardle;
 
 public class User {
     private int id;

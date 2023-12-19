@@ -1,4 +1,4 @@
-package com.example.precticafinalstewardle;
+package com.example.practicafinalstewardle;
 
 import static android.content.ContentValues.TAG;
 
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,10 +21,10 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Set;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,8 +39,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import org.w3c.dom.Text;
 
 import java.util.Random;
 

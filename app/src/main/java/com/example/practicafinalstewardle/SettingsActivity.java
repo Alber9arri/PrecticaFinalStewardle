@@ -1,9 +1,11 @@
-package com.example.precticafinalstewardle;
+package com.example.practicafinalstewardle;
 
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -11,6 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
+
+import java.util.Locale;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -26,15 +31,28 @@ public class SettingsActivity extends AppCompatActivity {
                             fragment.getClass().getSimpleName())
                     .commit();
         }
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
-            Log.e(TAG, key);
             if (key.equals("dark_mode")) {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
                 if(preferences.getBoolean("dark_mode", false))AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                recreate();
+            }
+            if (key.equals("language")){
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                // Actualiza la configuración del idioma
+                Locale locale = new Locale(preferences.getString("language", "es"));
+                Locale.setDefault(locale);
+                Configuration config = new Configuration();
+                config.locale = locale;
+                getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
             }
         };
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         preferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
     }
     @Override
