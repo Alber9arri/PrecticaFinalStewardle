@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:itemTextAppearance">@style/MenuItemTextAppearance</item>
+    </style>
+    <style name="MenuItemTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppThemeDark" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:itemTextAppearance">@style/MenuItemTextAppearance</item>
+        <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewStyle</item>
+        <item name="android:popupMenuStyle">@style/PopupMenuStyle</item>
+    </style>
+    <style name="MenuItemTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="AutoCompleteTextViewStyle" parent="@android:style/Widget.AutoCompleteTextView">
+        <item name="android:background">@color/colorAutoCompleteTextBackground</item>
+        <item name="android:textColorHint">@color/colorAutoCompleteTextHint</item>
+        <item name="android:textColor">@color/colorAutoCompleteText</item>
+    </style>
+    <style name="PopupMenuStyle" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_game"
+        app:showAsAction="never"
+        android:title="@string/action_game"
+        android:textColor="@color/black"/>
+    <item
+        android:id="@+id/action_stats"
+        app:showAsAction="never"
+        android:title="@string/action_stats"
+        android:textColor="@color/black"/>
+    <item
+        android:id="@+id/action_ranking"
+        app:showAsAction="never"
+        android:title="@string/action_ranking"
+        android:textColor="@color/black"/>
+    <item
+        android:id="@+id/action_settings"
+        app:showAsAction="never"
+        android:title="@string/action_settings"
+        android:textColor="@color/black"/>
+</menu>

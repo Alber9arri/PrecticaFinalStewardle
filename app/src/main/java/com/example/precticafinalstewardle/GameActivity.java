@@ -3,12 +3,18 @@ package com.example.precticafinalstewardle;
 import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -48,10 +54,14 @@ public class GameActivity extends AppCompatActivity {
     private int idCount = R.id.driver1age;
     private int idSVGImageCount = R.id.driver1flag;
     private int idImageCount = R.id.driver1team;
+    private SharedPreferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if(preferences.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         driverInput = findViewById(R.id.DriverInput);
         // Configura Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -255,5 +265,29 @@ public class GameActivity extends AppCompatActivity {
     public void playAgain(View view) {
         clean();
         playGame();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            case R.id.action_game:
+                startActivity(new Intent(this, GameActivity.class));
+                return true;
+            case R.id.action_stats:
+                startActivity(new Intent(this, StatsActivity.class));
+                return true;
+            case R.id.action_ranking:
+                startActivity(new Intent(this, RankingActivity.class));
+                return true;
+            default:
+                return false;
+        }
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PracticaFinalStewardle</string>
+    <string name="app_name">STEWARDLE</string>
     <string name="title">Stewardle</string>
     <string name="driver">Piloto</string>
     <string name="flag">Bandera</string>
@@ -13,4 +13,11 @@
     <string name="game_over">Perdiste. El piloto era </string>
     <string name="you_win">Acertaste!! </string>
     <string name="playAgain">Volver a jugar</string>
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="dark_mode2">Activa o desactiva el modo oscuro</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_game">Jugar</string>
+    <string name="action_stats">Estadísticas</string>
+    <string name="action_ranking">Ranking</string>
+
 </resources>
