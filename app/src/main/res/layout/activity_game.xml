@@ -94,14 +94,15 @@
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver1flag"
-            android:layout_width="10dp"
+            android:layout_width="15dp"
             android:layout_height="48dp"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver1team"
-            android:layout_width="10dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:gravity="center"
             android:layout_weight="1" />
@@ -112,6 +113,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text" />
 
         <TextView
@@ -128,6 +130,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text" />
 
         <TextView
@@ -157,14 +160,15 @@
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver2flag"
-            android:layout_width="10dp"
+            android:layout_width="15dp"
             android:layout_height="48dp"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver2team"
-            android:layout_width="10dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:gravity="center"
             android:layout_weight="1" />
@@ -175,6 +179,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -191,6 +196,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -220,14 +226,15 @@
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver3flag"
-            android:layout_width="10dp"
+            android:layout_width="15dp"
             android:layout_height="48dp"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver3team"
-            android:layout_width="10dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:gravity="center"
             android:layout_weight="1" />
@@ -238,6 +245,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -254,6 +262,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -283,14 +292,15 @@
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver4flag"
-            android:layout_width="10dp"
+            android:layout_width="15dp"
             android:layout_height="48dp"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver4team"
-            android:layout_width="10dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:gravity="center"
             android:layout_weight="1" />
@@ -301,6 +311,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -317,6 +328,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -346,14 +358,15 @@
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver5flag"
-            android:layout_width="10dp"
+            android:layout_width="15dp"
             android:layout_height="48dp"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver5team"
-            android:layout_width="10dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:gravity="center"
             android:layout_weight="1" />
@@ -364,6 +377,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -380,6 +394,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -409,14 +424,15 @@
 
         <com.caverock.androidsvg.SVGImageView
             android:id="@+id/driver6flag"
-            android:layout_width="10dp"
+            android:layout_width="15dp"
             android:layout_height="48dp"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/driver6team"
-            android:layout_width="10dp"
+            android:layout_width="0dp"
             android:layout_height="48dp"
             android:gravity="center"
             android:layout_weight="1" />
@@ -427,6 +443,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView
@@ -443,6 +460,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginHorizontal="10dp"
             android:textColor="@color/text"/>
 
         <TextView

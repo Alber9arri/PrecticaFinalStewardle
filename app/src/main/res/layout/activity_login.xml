@@ -21,7 +21,7 @@
         android:gravity="center"
         android:text="INICIO DE SESIÓN"
         android:textColor="@color/text"
-        android:textSize="40sp" />
+        android:textSize="38sp" />
 
     <TextView
         android:id="@+id/textView3"
