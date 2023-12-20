@@ -7,4 +7,6 @@
     <color name="colorAutoCompleteTextBackground">#222222</color>
     <color name="colorAutoCompleteTextHint">#808080</color>
     <color name="colorAutoCompleteText">#FFFFFF</color>
+    <color name="higher">#FF9E00</color>
+    <color name="lower">#B884FF</color>
 </resources>

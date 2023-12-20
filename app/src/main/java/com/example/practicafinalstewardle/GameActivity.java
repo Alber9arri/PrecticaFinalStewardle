@@ -176,7 +176,7 @@ public class GameActivity extends AppCompatActivity {
                     TextView textView = findViewById(idCount);
                     textView.setText(String.valueOf(drivers.get(i).getAsJsonObject().get("age")));
                     if (drivers.get(i).getAsJsonObject().get("age").getAsInt() < driver.getAsJsonObject().get("age").getAsInt())
-                        textView.setBackgroundColor(Color.RED);
+                        getResources().getColor(R.color.higher);
                     else if (drivers.get(i).getAsJsonObject().get("age").getAsInt() > driver.getAsJsonObject().get("age").getAsInt())
                         textView.setBackgroundColor(Color.BLUE);
                     else textView.setBackgroundColor(Color.GREEN);
