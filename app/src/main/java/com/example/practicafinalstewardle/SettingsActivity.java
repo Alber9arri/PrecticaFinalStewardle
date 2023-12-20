@@ -40,6 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
                 recreate();
             }
             if (key.equals("language")){
+                Log.e(TAG, "locale");
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
                 // Actualiza la configuración del idioma
                 Locale locale = new Locale(preferences.getString("language", "es"));
@@ -65,15 +66,19 @@ public class SettingsActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
+                finish();
                 return true;
             case R.id.action_game:
                 startActivity(new Intent(this, GameActivity.class));
+                finish();
                 return true;
             case R.id.action_stats:
                 startActivity(new Intent(this, StatsActivity.class));
+                finish();
                 return true;
             case R.id.action_ranking:
                 startActivity(new Intent(this, RankingActivity.class));
+                finish();
                 return true;
             default:
                 return false;

@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             // Cambia a la pantalla de juego
             Intent intent = new Intent(LoginActivity.this, GameActivity.class);
             startActivity(intent);
+            finish();
         } else {
             Toast.makeText(LoginActivity.this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
         }
