@@ -11,7 +11,7 @@
     <string name="hint_driver">Introduce un piloto</string>
     <string name="check">Comprobar</string>
     <string name="game_over">Perdiste. El piloto era </string>
-    <string name="you_win">Acertaste!! </string>
+    <string name="you_win">Acertaste!! En</string>
     <string name="playAgain">Volver a jugar</string>
     <string name="dark_mode">Modo oscuro</string>
     <string name="dark_mode_summ">Activa o desactiva el modo oscuro</string>
@@ -22,6 +22,7 @@
     <string name="language">Idioma</string>
     <string name="language_summ">Cambia el idioma</string>
     <string name="language_dialog">Seleciona el idioma</string>
+    <string name="attempts">intentos</string>
     <string-array name="languages_entries">
         <item>Español</item>
         <item>Inglés</item>

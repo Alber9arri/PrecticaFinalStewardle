@@ -11,7 +11,7 @@
     <string name="hint_driver">Insert a driver</string>
     <string name="check">Check</string>
     <string name="game_over">You lose. The driver was</string>
-    <string name="you_win">You win!! </string>
+    <string name="you_win">You win!! In</string>
     <string name="playAgain">Play again</string>
     <string name="dark_mode">Dark mode</string>
     <string name="dark_mode_summ">Turn on or off dark mode</string>
@@ -22,6 +22,7 @@
     <string name="language">Language</string>
     <string name="language_summ">Change the language</string>
     <string name="language_dialog">Select language</string>
+    <string name="attempts">attempts</string>
     <string-array name="languages_entries">
         <item>Spanish</item>
         <item>English</item>

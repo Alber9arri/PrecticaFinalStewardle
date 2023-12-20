@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -34,7 +35,7 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
             if (key.equals("dark_mode")) {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-                if(preferences.getBoolean("dark_mode", false))AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                if(preferences.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 recreate();
             }
@@ -46,7 +47,6 @@ public class SettingsActivity extends AppCompatActivity {
                 Configuration config = new Configuration();
                 config.locale = locale;
                 getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-
                 Intent intent = getIntent();
                 finish();
                 startActivity(intent);

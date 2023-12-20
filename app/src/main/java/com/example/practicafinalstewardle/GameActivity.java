@@ -59,8 +59,18 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if(preferences.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        Configuration config = this.getResources().getConfiguration();
+        if (preferences.getBoolean("dark_mode", false))
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        Log.e(TAG, config.getLocales().get(0).getLanguage());
+        if (!preferences.getString("language", "es").equals(config.getLocales().get(0).getLanguage())){
+            Locale locale = new Locale(preferences.getString("language", "es"));
+            Locale.setDefault(locale);
+            config.locale = locale;
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+            recreate();
+        }
         driverInput = findViewById(R.id.DriverInput);
         // Configura Retrofit
         Retrofit retrofit = new Retrofit.Builder()
@@ -115,31 +125,31 @@ public class GameActivity extends AppCompatActivity {
         for(int i=0; i<intentos; i++){
             textView = findViewById(idCount);
             textView.setText("");
-            textView.setBackgroundColor(Color.WHITE);
+            textView.setBackgroundColor(getResources().getColor(R.color.background));
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
-            textView.setBackgroundColor(Color.WHITE);
+            textView.setBackgroundColor(getResources().getColor(R.color.background));
             idCount++;
             @SuppressLint("WrongViewCast") SVGImageView SVGimageView = findViewById(idCount);
             SVGimageView.setVisibility(View.INVISIBLE);
-            SVGimageView.setBackgroundColor(Color.WHITE);
+            SVGimageView.setBackgroundColor(getResources().getColor(R.color.background));
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
-            textView.setBackgroundColor(Color.WHITE);
+            textView.setBackgroundColor(getResources().getColor(R.color.background));
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
-            textView.setBackgroundColor(Color.WHITE);
+            textView.setBackgroundColor(getResources().getColor(R.color.background));
             idCount++;
             @SuppressLint("WrongViewCast") ImageView imageView = findViewById(idCount);
             imageView.setVisibility(View.INVISIBLE);
-            imageView.setBackgroundColor(Color.WHITE);
+            imageView.setBackgroundColor(getResources().getColor(R.color.background));
             idCount++;
             textView = findViewById(idCount);
             textView.setText("");
-            textView.setBackgroundColor(Color.WHITE);
+            textView.setBackgroundColor(getResources().getColor(R.color.background));
             idCount++;
             idCount++;
         }
@@ -235,7 +245,7 @@ public class GameActivity extends AppCompatActivity {
             driverName = driver.getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+driver.getAsJsonObject().get("lastName").toString().replaceAll("\"", "");
             if(input.equals(driverName)){
                 TextView textView = findViewById(R.id.message);
-                textView.setText(getString(R.string.you_win)+" En "+intentos+" intentos");
+                textView.setText(getString(R.string.you_win)+" "+intentos+" "+getString(R.string.attempts));
                 textView.setVisibility(View.VISIBLE);
                 driverInput.setVisibility(View.INVISIBLE);
                 Button boton = findViewById(R.id.buttonInput);

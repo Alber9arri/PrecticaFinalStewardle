@@ -8,6 +8,7 @@
         <item name="android:itemTextAppearance">@style/MenuItemTextAppearance</item>
         <item name="android:autoCompleteTextViewStyle">@style/AutoCompleteTextViewStyle</item>
         <item name="android:popupMenuStyle">@style/PopupMenuStyle</item>
+        <item name="android:dialogTitle">@style/CustomDialogTheme</item>
     </style>
     <style name="MenuItemTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
         <item name="android:textColor">@color/black</item>
@@ -19,6 +20,9 @@
     </style>
     <style name="PopupMenuStyle" parent="@style/Widget.AppCompat.PopupMenu">
         <item name="android:textColor">@color/text</item>
+    </style>
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>
