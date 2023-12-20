@@ -82,7 +82,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/namesLayout"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:id="@+id/driver1name"
@@ -148,7 +149,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/driver1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:id="@+id/driver2name"
@@ -214,7 +216,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/driver2"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:id="@+id/driver3name"
@@ -280,7 +283,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/driver3"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:id="@+id/driver4name"
@@ -346,7 +350,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/driver4"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:id="@+id/driver5name"
@@ -412,7 +417,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/driver5"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:id="@+id/driver6name"
@@ -483,27 +489,31 @@
         android:visibility="visible"
         android:textColor="@color/text"
         android:theme="@style/AutoCompleteTextViewStyle"
-        />
+        android:layout_marginTop="50dp" />
 
     <Button
         android:id="@+id/buttonInput"
-        android:layout_below="@id/DriverInput"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/DriverInput"
+        android:layout_marginTop="50dp"
         android:onClick="check"
-        android:visibility="visible"
         android:text="@string/check"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:visibility="visible"
+        android:layout_marginHorizontal="140dp"/>
 
     <Button
         android:id="@+id/buttonPlayAgain"
-        android:layout_below="@id/DriverInput"
-        android:layout_width="wrap_content"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/DriverInput"
+        android:layout_marginHorizontal="120dp"
+        android:layout_marginTop="50dp"
         android:onClick="playAgain"
-        android:visibility="invisible"
         android:text="@string/playAgain"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/message"
@@ -511,7 +521,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        android:textColor="@color/text"/>
-
+        android:textColor="@color/text"
+        android:textSize="20sp"
+        android:layout_marginTop="70dp"
+        android:layout_marginHorizontal="10dp"/>
 
 </RelativeLayout>
