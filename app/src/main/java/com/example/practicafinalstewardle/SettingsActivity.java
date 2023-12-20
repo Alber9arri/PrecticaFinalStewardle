@@ -40,17 +40,12 @@ public class SettingsActivity extends AppCompatActivity {
                 recreate();
             }
             if (key.equals("language")){
-                Log.e(TAG, "locale");
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-                // Actualiza la configuración del idioma
                 Locale locale = new Locale(preferences.getString("language", "es"));
-                Locale.setDefault(locale);
                 Configuration config = new Configuration();
-                config.locale = locale;
+                config.setLocale(locale);
                 getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-                Intent intent = getIntent();
-                finish();
-                startActivity(intent);
+                recreate();
             }
         };
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
