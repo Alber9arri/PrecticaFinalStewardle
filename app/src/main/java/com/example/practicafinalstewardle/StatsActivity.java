@@ -25,7 +25,6 @@ public class StatsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stats);
 
 
-        TextView title = findViewById(R.id.title);
 
 
     }

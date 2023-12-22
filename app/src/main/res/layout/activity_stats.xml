@@ -13,8 +13,31 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/alfa_slab_one"
         android:textSize="20sp"
-        android:layout_marginHorizontal="100dp"
+        android:layout_marginHorizontal="90dp"
         android:text="@string/stats_title"/>
 
+    <TextView
+        android:id="@+id/played"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stats_played"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="40dp"/>
+
+    <TextView
+        android:id="@+id/won"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stats_won"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="40dp"/>
+
+    <TextView
+        android:id="@+id/lost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stats_lost"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="40dp"/>
 
 </RelativeLayout>
