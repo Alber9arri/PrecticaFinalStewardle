@@ -12,6 +12,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -22,7 +23,17 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Writer;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Set;
@@ -35,10 +46,15 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGImageView;
 import com.caverock.androidsvg.SVGParseException;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Random;
 
@@ -60,10 +76,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         Configuration config = this.getResources().getConfiguration();
-        if (preferences.getBoolean("dark_mode", false))
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        if(preferences.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        Log.e(TAG, config.getLocales().get(0).getLanguage());
         if (!preferences.getString("language", "es").equals(config.getLocales().get(0).getLanguage())){
             Locale locale = new Locale(preferences.getString("language", "es"));
             Locale.setDefault(locale);
@@ -95,15 +109,126 @@ public class GameActivity extends AppCompatActivity {
                         drivers.add(jsonObject.get(key));
                         autocomplete.add(jsonObject.get(key).getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+jsonObject.get(key).getAsJsonObject().get("lastName").toString().replaceAll("\"", ""));
                     }
+                    JSONObject finalobject = new JSONObject();
+                    try {
+                        finalobject.put("drivers", drivers);
+                        JsonArray names = new JsonArray();
+
+                        for (String name : autocomplete) {
+                            names.add(name);
+                        }
+                        finalobject.put("names", names);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        // Obtener el directorio de archivos internos de la aplicación
+                        File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                        // Crear un archivo en el directorio interno
+                        File file = new File(directory, "drivers.json");
+
+                        // Convertir el objeto JSON a una cadena
+                        String jsonString = finalobject.toString();
+
+                        // Escribir la cadena en el archivo
+                        FileWriter fileWriter = new FileWriter(file);
+                        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                        bufferedWriter.write(jsonString);
+                        bufferedWriter.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     playGame();
                 } else {
-                    //Manejar error de respuesta
+                    try {
+                        // Obtener el directorio "Documents" en el almacenamiento interno de la aplicación
+                        File documentsDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+
+                        // Crear un objeto File apuntando al archivo JSON en el directorio "Documents"
+                        File file = new File(documentsDirectory, "drivers.json");
+
+                        // Verificar si el archivo existe
+                        if (!file.exists()) {
+                            Toast.makeText(GameActivity.this, "No existe el fichero drivers.json", Toast.LENGTH_SHORT).show();
+                        }
+
+                        // Leer el contenido del archivo JSON
+                        FileInputStream fileInputStream = new FileInputStream(file);
+                        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+                        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                        StringBuilder stringBuilder = new StringBuilder();
+                        String line;
+                        while ((line = bufferedReader.readLine()) != null) {
+                            stringBuilder.append(line);
+                        }
+
+                        // Cerrar los recursos
+                        bufferedReader.close();
+                        inputStreamReader.close();
+                        fileInputStream.close();
+                        JsonParser parser = new JsonParser();
+                        // Convertir la cadena de texto a un elemento JSON
+                        JsonElement jsonElement = parser.parse(stringBuilder.toString());
+                        Log.e(TAG, jsonElement.getAsJsonObject().get("names").toString().substring(1, jsonElement.getAsJsonObject().get("names").toString().length()-1));
+                        drivers = parser.parse(jsonElement.getAsJsonObject().get("drivers").toString().substring(1, jsonElement.getAsJsonObject().get("drivers").toString().length()-1).replace("\\", "")).getAsJsonArray();
+                        JsonArray names = parser.parse(jsonElement.getAsJsonObject().get("names").toString().substring(1, jsonElement.getAsJsonObject().get("names").toString().length()-1).replace("\\", "")).getAsJsonArray();
+                        Log.e(TAG, names.get(0).toString());
+                        for (JsonElement name : names) {
+                            autocomplete.add(name.toString().replaceAll("\"", ""));
+                        }
+                        playGame();
+                        Log.e(TAG, autocomplete.get(0));
+                    } catch (IOException e) {
+                        Toast.makeText(GameActivity.this, "No se han podido recuperar los datos de los pilotos", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                //Manejar error de peticion
+                try {
+                    // Obtener el directorio "Documents" en el almacenamiento interno de la aplicación
+                    File documentsDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+
+                    // Crear un objeto File apuntando al archivo JSON en el directorio "Documents"
+                    File file = new File(documentsDirectory, "drivers.json");
+
+                    // Verificar si el archivo existe
+                    if (!file.exists()) {
+                        Toast.makeText(GameActivity.this, "No existe el fichero drivers.json", Toast.LENGTH_SHORT).show();
+                    }
+
+                    // Leer el contenido del archivo JSON
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                    StringBuilder stringBuilder = new StringBuilder();
+                    String line;
+                    while ((line = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(line);
+                    }
+
+                    // Cerrar los recursos
+                    bufferedReader.close();
+                    inputStreamReader.close();
+                    fileInputStream.close();
+                    JsonParser parser = new JsonParser();
+                    // Convertir la cadena de texto a un elemento JSON
+                    JsonElement jsonElement = parser.parse(stringBuilder.toString());
+                    Log.e(TAG, jsonElement.getAsJsonObject().get("names").toString().substring(1, jsonElement.getAsJsonObject().get("names").toString().length()-1));
+                    drivers = parser.parse(jsonElement.getAsJsonObject().get("drivers").toString().substring(1, jsonElement.getAsJsonObject().get("drivers").toString().length()-1).replace("\\", "")).getAsJsonArray();
+                    JsonArray names = parser.parse(jsonElement.getAsJsonObject().get("names").toString().substring(1, jsonElement.getAsJsonObject().get("names").toString().length()-1).replace("\\", "")).getAsJsonArray();
+                    Log.e(TAG, names.get(0).toString());
+                    for (JsonElement name : names) {
+                        autocomplete.add(name.toString().replaceAll("\"", ""));
+                    }
+                    playGame();
+                    Log.e(TAG, autocomplete.get(0));
+                } catch (IOException e) {
+                    Toast.makeText(GameActivity.this, "No se han podido recuperar los datos de los pilotos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -1,8 +1,11 @@
 package com.example.practicafinalstewardle;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -10,12 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGImageView;
 import com.caverock.androidsvg.SVGParseException;
 
 import java.io.InputStream;
+import java.util.Locale;
 
 public class RankingActivity extends AppCompatActivity {
 
@@ -23,7 +28,17 @@ public class RankingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Configuration config = this.getResources().getConfiguration();
+        if(preferences.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        if (!preferences.getString("language", "es").equals(config.getLocales().get(0).getLanguage())){
+            Locale locale = new Locale(preferences.getString("language", "es"));
+            Locale.setDefault(locale);
+            config.locale = locale;
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+            recreate();
+        }
 
 
 

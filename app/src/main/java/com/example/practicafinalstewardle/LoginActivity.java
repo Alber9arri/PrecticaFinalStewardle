@@ -2,6 +2,7 @@ package com.example.practicafinalstewardle;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -23,8 +26,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Configuration config = this.getResources().getConfiguration();
         if(preferences.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        if (!preferences.getString("language", "es").equals(config.getLocales().get(0).getLanguage())){
+            Locale locale = new Locale(preferences.getString("language", "es"));
+            Locale.setDefault(locale);
+            config.locale = locale;
+            getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+            recreate();
+        }
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);

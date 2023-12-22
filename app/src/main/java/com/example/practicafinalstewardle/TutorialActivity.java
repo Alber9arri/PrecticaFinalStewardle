@@ -1,8 +1,11 @@
 package com.example.practicafinalstewardle;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -10,18 +13,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.caverock.androidsvg.SVG;
 import com.caverock.androidsvg.SVGImageView;
 import com.caverock.androidsvg.SVGParseException;
 
 import java.io.InputStream;
+import java.util.Locale;
 
 public class TutorialActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Configuration configuration = this.getResources().getConfiguration();
+        if(prefs.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        if (!prefs.getString("language", "es").equals(configuration.getLocales().get(0).getLanguage())){
+            Locale locale = new Locale(prefs.getString("language", "es"));
+            Locale.setDefault(locale);
+            configuration.locale = locale;
+            getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
+            recreate();
+        }
         setContentView(R.layout.activity_tutorial);
 
         SVGImageView svgImageView = findViewById(R.id.exampleNationality);

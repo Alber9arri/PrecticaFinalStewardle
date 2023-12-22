@@ -32,6 +32,17 @@ public class SettingsActivity extends AppCompatActivity {
                             fragment.getClass().getSimpleName())
                     .commit();
         }
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Configuration configuration = this.getResources().getConfiguration();
+        if(prefs.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        if (!prefs.getString("language", "es").equals(configuration.getLocales().get(0).getLanguage())){
+            Locale locale = new Locale(prefs.getString("language", "es"));
+            Locale.setDefault(locale);
+            configuration.locale = locale;
+            getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
+            recreate();
+        }
         SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
             if (key.equals("dark_mode")) {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
