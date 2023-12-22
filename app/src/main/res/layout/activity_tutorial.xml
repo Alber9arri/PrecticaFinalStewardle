@@ -69,26 +69,26 @@
         android:background="#FF0000"/>
 
     <TextView
-        android:id="@+id/textNumberLow"
+        android:id="@+id/textNumberLows"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tutorial_low_number"
-        android:layout_marginTop="455dp"
+        android:text="@string/tutorial_previous_team"
+        android:layout_marginTop="445dp"
         android:layout_marginLeft="90dp"/>
 
-    <TextView
-        android:id="@+id/numberLow"
+    <ImageView
+        android:id="@+id/examplePreviousTeam"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:gravity="center"
         android:layout_weight="1"
         android:layout_marginTop="440dp"
         android:layout_marginHorizontal="15dp"
-        android:text="33"
-        android:background="@color/lower"/>
+        android:src="@drawable/williams"
+        android:background="@color/higher"/>
 
     <TextView
-        android:id="@+id/textNumberHigh"
+        android:id="@+id/textNumberLow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tutorial_high_number"
@@ -96,14 +96,33 @@
         android:layout_marginLeft="90dp"/>
 
     <TextView
-        android:id="@+id/numberHigh"
+        android:id="@+id/numberLow"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="520dp"
         android:layout_weight="1"
-        android:background="@color/higher"
+        android:background="@color/lower"
         android:gravity="center"
         android:text="93" />
+
+    <TextView
+        android:id="@+id/textNumberHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_low_number"
+        android:layout_marginTop="615dp"
+        android:layout_marginLeft="90dp"/>
+
+    <TextView
+        android:id="@+id/numberHigh"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="600dp"
+        android:layout_marginHorizontal="15dp"
+        android:text="33"
+        android:background="@color/higher"/>
 
 </RelativeLayout>

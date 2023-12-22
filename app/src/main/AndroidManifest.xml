@@ -31,6 +31,12 @@
         <activity android:name=".TutorialActivity"
             android:theme="@style/AppTheme"/>
 
+        <activity android:name=".StatsActivity"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".RankingActivity"
+            android:theme="@style/AppTheme"/>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

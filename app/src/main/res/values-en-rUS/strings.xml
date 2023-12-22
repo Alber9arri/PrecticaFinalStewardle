@@ -38,8 +38,10 @@
     <string name="example">EXAMPLE:</string>
     <string name="tutorial_nationality">The pilot is of Spanish nationality</string>
     <string name="tutorial_team">The driver does not raced for Ferrari</string>
+    <string name="tutorial_previous_team">The driver previously raced for Williams</string>
     <string name="tutorial_low_number">The driver number is too low</string>
     <string name="tutorial_high_number">The driver number is too high</string>
+    <string name="stats_title">STATS</string>
     <string-array name="languages_entries">
         <item>Spanish</item>
         <item>English</item>
