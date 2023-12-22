@@ -19,7 +19,7 @@
         android:layout_marginTop="100dp"
         android:fontFamily="@font/alfa_slab_one"
         android:gravity="center"
-        android:text="INICIO DE SESIÓN"
+        android:text="@string/login"
         android:textColor="@color/text"
         android:textSize="38sp" />
 
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="230dp"
         android:layout_marginHorizontal="10dp"
-        android:text="Introduce tu Nombre de Usuario:"
+        android:text="@string/introduce_username"
         android:textSize="20sp" />
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="360dp"
         android:layout_marginHorizontal="10dp"
-        android:text="Introduce tu Clave:"
+        android:text="@string/introduce_password"
         android:textSize="20sp" />
 
     <EditText
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextUsername"
         android:layout_marginTop="90dp"
-        android:hint="Contraseña"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <Button
@@ -57,7 +57,7 @@
         android:layout_below="@id/editTextPassword"
         android:layout_marginTop="65dp"
         android:backgroundTint="#FF00"
-        android:text="Iniciar Sesión"
+        android:text="@string/login_button"
         android:textColor="@color/text" />
 
     <Button
@@ -67,7 +67,7 @@
         android:layout_below="@id/buttonLogin"
         android:layout_marginTop="30dp"
         android:backgroundTint="#FF00"
-        android:text="Registro"
+        android:text="@string/register_button"
         android:textColor="@color/text" />
 
     <EditText
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="260dp"
-        android:hint="Usuario" />
+        android:hint="@string/username" />
 
     <TextView
         android:id="@+id/textView5"
@@ -84,7 +84,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="750dp"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Inspired by stewardle.com"
+        android:text="@string/inspired"
         android:textColor="@color/text"
         android:textSize="20sp" />
 

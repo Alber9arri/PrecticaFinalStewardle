@@ -22,4 +22,16 @@
         app:showAsAction="never"
         android:title="@string/action_settings"
         android:textColor="@color/black"/>
+
+    <item
+        android:id="@+id/action_tutorial"
+        app:showAsAction="never"
+        android:title="@string/action_tutorial"
+        android:textColor="@color/black"/>
+
+    <item
+        android:id="@+id/action_logout"
+        app:showAsAction="never"
+        android:title="@string/logout"
+        android:textColor="@color/black"/>
 </menu>

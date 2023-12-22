@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".TutorialActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alfa_slab_one"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="120dp"
+        android:text="@string/tutorial"/>
+
+    <TextView
+        android:id="@+id/introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_introduction"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alfa_slab_one"
+        android:textSize="16sp"
+        android:layout_marginTop="230dp"
+        android:text="@string/example"/>
+
+    <TextView
+        android:id="@+id/textNationality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_nationality"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="90dp"/>
+
+    <com.caverock.androidsvg.SVGImageView
+        android:id="@+id/exampleNationality"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_marginTop="290dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/textTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_team"
+        android:layout_marginTop="375dp"
+        android:layout_marginLeft="90dp"/>
+
+    <ImageView
+        android:id="@+id/exampleTeam"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="360dp"
+        android:layout_marginHorizontal="15dp"
+        android:src="@drawable/ferrari"
+        android:background="#FF0000"/>
+
+    <TextView
+        android:id="@+id/textNumberLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_low_number"
+        android:layout_marginTop="455dp"
+        android:layout_marginLeft="90dp"/>
+
+    <TextView
+        android:id="@+id/numberLow"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="440dp"
+        android:layout_marginHorizontal="15dp"
+        android:text="33"
+        android:background="@color/lower"/>
+
+    <TextView
+        android:id="@+id/textNumberHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_high_number"
+        android:layout_marginTop="535dp"
+        android:layout_marginLeft="90dp"/>
+
+    <TextView
+        android:id="@+id/numberHigh"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="520dp"
+        android:layout_weight="1"
+        android:background="@color/higher"
+        android:gravity="center"
+        android:text="93" />
+
+</RelativeLayout>

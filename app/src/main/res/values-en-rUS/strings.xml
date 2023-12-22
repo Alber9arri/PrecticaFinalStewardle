@@ -1,4 +1,13 @@
 <resources>
+    <string name="login">LOGIN</string>
+    <string name="introduce_username">Introduce your Username:</string>
+    <string name="username">User</string>
+    <string name="introduce_password">Introduce your Password:</string>
+    <string name="password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="inspired">Inspired by stewardle.com</string>
+    <string name="logout">Logout</string>
     <string name="app_name">STEWARDLE</string>
     <string name="title">Stewardle</string>
     <string name="driver">Name</string>
@@ -19,10 +28,18 @@
     <string name="action_game">Play</string>
     <string name="action_stats">Stats</string>
     <string name="action_ranking">Ranking</string>
+    <string name="action_tutorial">Tutorial</string>
     <string name="language">Language</string>
     <string name="language_summ">Change the language</string>
     <string name="language_dialog">Select language</string>
     <string name="attempts">attempts</string>
+    <string name="tutorial">TUTORIAL</string>
+    <string name="tutorial_introduction">You have to guess the driver in 6 attempts.\n\n In each attempt you must choose a driver from the drop-down list, only drivers who have raced in the 2023 season are shown.\n\n After selecting a driver, the color of the boxes will change, following the pattern shown in the example below</string>
+    <string name="example">EXAMPLE:</string>
+    <string name="tutorial_nationality">The pilot is of Spanish nationality</string>
+    <string name="tutorial_team">The driver does not raced for Ferrari</string>
+    <string name="tutorial_low_number">The driver number is too low</string>
+    <string name="tutorial_high_number">The driver number is too high</string>
     <string-array name="languages_entries">
         <item>Spanish</item>
         <item>English</item>

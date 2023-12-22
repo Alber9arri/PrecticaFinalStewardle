@@ -75,6 +75,14 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(new Intent(this, RankingActivity.class));
                 finish();
                 return true;
+            case R.id.action_tutorial:
+                startActivity(new Intent(this, TutorialActivity.class));
+                finish();
+                return true;
+            case R.id.action_logout:
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+                return true;
             default:
                 return false;
         }
