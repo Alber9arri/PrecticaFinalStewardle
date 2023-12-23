@@ -1,21 +1,15 @@
 package com.example.practicafinalstewardle;
 
-import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.os.LocaleListCompat;
-
 import java.util.Locale;
 
 
@@ -32,6 +26,7 @@ public class SettingsActivity extends AppCompatActivity {
                             fragment.getClass().getSimpleName())
                     .commit();
         }
+        //Obtiene las preferencias y la configuración de las preferencias para el idioma y modo oscuro
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         Configuration configuration = this.getResources().getConfiguration();
         if(prefs.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -43,6 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
             getResources().updateConfiguration(configuration, getResources().getDisplayMetrics());
             recreate();
         }
+        //Crea un listener para cambiar el modo oscuro y el idioma cuando cambien las preferencias
         SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = (sharedPreferences, key) -> {
             if (key.equals("dark_mode")) {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -63,11 +59,13 @@ public class SettingsActivity extends AppCompatActivity {
         preferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
     }
     @Override
+    //Crea el menú
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
     @Override
+    //Maneja las opciones del menú
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:

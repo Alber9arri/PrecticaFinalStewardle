@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //Obtiene las preverencias de modo oscuro e idioma
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         Configuration config = this.getResources().getConfiguration();
         if(preferences.getBoolean("dark_mode", false)) AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
