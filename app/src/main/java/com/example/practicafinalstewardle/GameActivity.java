@@ -63,6 +63,7 @@ public class GameActivity extends AppCompatActivity {
     private AutoCompleteTextView driverInput;
     private JsonElement driver;
     private int intentos;
+    private String currentUsername;
     private int idCount = R.id.driver1age;
     private SharedPreferences preferences;
     @Override
@@ -267,10 +268,10 @@ public class GameActivity extends AppCompatActivity {
         });
 
         //Pasamos el nombre del usuario actual en un archivo de preferencias compartidas
-        String username = preferences.getString("UsuarioActual", "");
+        currentUsername = preferences.getString("UsuarioActual", "");
 
         TextView usernameTextView = findViewById(R.id.textViewUsername);
-        usernameTextView.setText("Usuario Actual: " + username);
+        usernameTextView.setText("Usuario Actual: " + currentUsername);
     }
     private void playGame() {
         //Se ponen a 0 los intentos
@@ -430,6 +431,9 @@ public class GameActivity extends AppCompatActivity {
                 boton.setVisibility(View.INVISIBLE);
                 boton = findViewById(R.id.buttonPlayAgain);
                 boton.setVisibility(View.VISIBLE);
+
+                updateWonStats();
+                updatePlayedStats();
             }
             else{
                 //Si se llega a los 6 intentos se muestra el boton de volver a jugar, con el mensaje de has perdido y el nombre del piloto secreto
@@ -444,6 +448,9 @@ public class GameActivity extends AppCompatActivity {
                     textView.setText(getString(R.string.game_over)+" "+driverName);
                     boton = findViewById(R.id.buttonPlayAgain);
                     boton.setVisibility(View.VISIBLE);
+
+                    updateLostStats();
+                    updatePlayedStats();
                 }
             }
         }
@@ -492,5 +499,44 @@ public class GameActivity extends AppCompatActivity {
             default:
                 return false;
         }
+    }
+
+    private void updatePlayedStats() {
+        // Abre la base de datos para actualizar las estadísticas
+        UserRepository userRepository = new UserRepository(this);
+        userRepository.open();
+
+        // Aumenta los valores de played para el usuario actual
+        User currentUser = new User(currentUsername, ""); // No necesitamos la contraseña aquí
+        userRepository.updatePlayed(currentUser);
+
+        // Cierra la base de datos después de la actualización
+        userRepository.close();
+    }
+
+    private void updateWonStats() {
+        // Abre la base de datos para actualizar las estadísticas
+        UserRepository userRepository = new UserRepository(this);
+        userRepository.open();
+
+        // Aumenta los valores de won para el usuario actual
+        User currentUser = new User(currentUsername, ""); // No necesitamos la contraseña aquí
+        userRepository.updateWon(currentUser);
+
+        // Cierra la base de datos después de la actualización
+        userRepository.close();
+    }
+
+    private void updateLostStats() {
+        // Abre la base de datos para actualizar las estadísticas
+        UserRepository userRepository = new UserRepository(this);
+        userRepository.open();
+
+        // Aumenta los valores de lost para el usuario actual
+        User currentUser = new User(currentUsername, ""); // No necesitamos la contraseña aquí
+        userRepository.updateLost(currentUser);
+
+        // Cierra la base de datos después de la actualización
+        userRepository.close();
     }
 }

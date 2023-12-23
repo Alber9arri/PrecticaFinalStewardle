@@ -42,7 +42,7 @@
     <string name="tutorial_low_number">El número del piloto es demasiado bajo</string>
     <string name="tutorial_high_number">El número del piloto es demasiado alto</string>
     <string name="stats_title">ESTADÍSTICAS</string>
-    <string name="stats_played">JUAGADAS</string>
+    <string name="stats_played">JUGADAS</string>
     <string name="stats_won">GANADAS</string>
     <string name="stats_lost">PERDIDAS</string>
     <string name="ranking_title">RANKING</string>

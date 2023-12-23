@@ -44,4 +44,73 @@ public class UserRepository {
             return cursor.getCount() > 0;
         }
     }
+
+    public void updatePlayed(User user) {
+        // Obtemos los valores de played desde la base de datos
+        String[] columns = {"played"};
+        String selection = "username=?";
+        String[] selectionArgs = {user.getUsername()};
+
+        Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
+
+        int played = 0;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            played = cursor.getInt(cursor.getColumnIndex("played"));
+            cursor.close();
+        }
+
+        // Incrementa los valores
+        ContentValues values = new ContentValues();
+        values.put("played", played + 1);
+
+        // Actualiza la base de datos con los nuevos valores
+        database.update("users", values, selection, selectionArgs);
+    }
+
+    public void updateWon(User user) {
+        // Obtemos los valores de won desde la base de datos
+        String[] columns = {"won"};
+        String selection = "username=?";
+        String[] selectionArgs = {user.getUsername()};
+
+        Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
+
+        int won = 0;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            won = cursor.getInt(cursor.getColumnIndex("won"));
+            cursor.close();
+        }
+
+        // Incrementa los valores
+        ContentValues values = new ContentValues();
+        values.put("won", won + 1);
+
+        // Actualiza la base de datos con los nuevos valores
+        database.update("users", values, selection, selectionArgs);
+    }
+
+    public void updateLost(User user) {
+        // Obtemos los valores de lost desde la base de datos
+        String[] columns = {"lost"};
+        String selection = "username=?";
+        String[] selectionArgs = {user.getUsername()};
+
+        Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
+
+        int lost = 0;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            lost = cursor.getInt(cursor.getColumnIndex("lost"));
+            cursor.close();
+        }
+
+        // Incrementa los valores
+        ContentValues values = new ContentValues();
+        values.put("lost", lost + 1);
+
+        // Actualiza la base de datos con los nuevos valores
+        database.update("users", values, selection, selectionArgs);
+    }
 }
