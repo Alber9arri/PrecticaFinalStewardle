@@ -74,6 +74,10 @@ public class LoginActivity extends AppCompatActivity {
             // Inicio de sesión exitoso
             Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("UsuarioActual", username);
+            editor.apply();
+
             // Cambia a la pantalla de juego
             Intent intent = new Intent(LoginActivity.this, GameActivity.class);
             startActivity(intent);

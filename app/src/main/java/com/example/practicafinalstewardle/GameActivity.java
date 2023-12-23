@@ -265,6 +265,12 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //Pasamos el nombre del usuario actual en un archivo de preferencias compartidas
+        String username = preferences.getString("UsuarioActual", "");
+
+        TextView usernameTextView = findViewById(R.id.textViewUsername);
+        usernameTextView.setText("Usuario Actual: " + username);
     }
     private void playGame() {
         //Se ponen a 0 los intentos

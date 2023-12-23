@@ -28,6 +28,9 @@ public class UserRepository {
         ContentValues values = new ContentValues();
         values.put("username", user.getUsername());
         values.put("password", user.getPassword());
+        values.put("played", 0);
+        values.put("won", 0);
+        values.put("lost", 0);
 
         return database.insert("users", null, values);
     }
