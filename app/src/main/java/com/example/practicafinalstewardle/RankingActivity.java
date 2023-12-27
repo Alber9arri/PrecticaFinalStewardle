@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 
+import java.util.List;
 import java.util.Locale;
 
 public class RankingActivity extends AppCompatActivity {
@@ -33,8 +35,18 @@ public class RankingActivity extends AppCompatActivity {
             recreate();
         }
 
+        UserRepository userRepository = new UserRepository(this);
+        List<User> topUsers = userRepository.getTopThreeUsers();
 
+        TextView top1 = findViewById(R.id.player1);
+        StringBuilder topUsersText = new StringBuilder("Top 3 Usuarios:\n");
 
+        for (int i = 0; i < topUsers.size(); i++) {
+            User user = topUsers.get(i);
+            topUsersText.append(i + 1).append(". ").append(user.getUsername()).append(" - Victorias: ").append(user.getWon()).append("\n");
+        }
+
+        top1.setText(topUsersText.toString());
     }
 
     @Override

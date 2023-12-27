@@ -7,6 +7,9 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserRepository {
 
     private SQLiteDatabase database;
@@ -97,6 +100,35 @@ public class UserRepository {
         }
 
         return lost;
+    }
+
+    public List<User> getTopThreeUsers() {
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        List<User> topUsers = new ArrayList<>();
+
+        String[] columns = {"username", "won"};
+        String orderBy = "won DESC";
+        String limit = "3";
+
+        Cursor cursor = database.query("users", columns, null, null, null, null, orderBy, limit);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String username = cursor.getString(cursor.getColumnIndex("username"));
+                int won = cursor.getInt(cursor.getColumnIndex("won"));
+
+                User user = new User(username, "");
+                user.setWon(won);
+
+                topUsers.add(user);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        database.close();
+
+        return topUsers;
     }
 
     public void updatePlayed(User user) {
