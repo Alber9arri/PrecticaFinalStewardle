@@ -48,25 +48,25 @@ public class UserRepository {
         }
     }
 
-    public int getPlayed(User user){
-            // Obtemos los valores de played desde la base de datos
-            String[] columns = {"played"};
-            String selection = "username=?";
-            String[] selectionArgs = {user.getUsername()};
+    public int getPlayed(User user) {
+        // Obtemos los valores de played desde la base de datos
+        String[] columns = {"played"};
+        String selection = "username=?";
+        String[] selectionArgs = {user.getUsername()};
 
-            Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
+        Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
 
-            int played = 0;
+        int played = 0;
 
-            if (cursor != null && cursor.moveToFirst()) {
-                played = cursor.getInt(cursor.getColumnIndex("played"));
-                cursor.close();
-            }
+        if (cursor != null && cursor.moveToFirst()) {
+            played = cursor.getInt(cursor.getColumnIndex("played"));
+            cursor.close();
+        }
 
-            return played;
+        return played;
     }
 
-    public int getWon(User user){
+    public int getWon(User user) {
         // Obtemos los valores de won desde la base de datos
         String[] columns = {"won"};
         String selection = "username=?";
@@ -84,7 +84,7 @@ public class UserRepository {
         return won;
     }
 
-    public int getLost(User user){
+    public int getLost(User user) {
         // Obtemos los valores de lost desde la base de datos
         String[] columns = {"lost"};
         String selection = "username=?";
@@ -132,69 +132,45 @@ public class UserRepository {
     }
 
     public void updatePlayed(User user) {
-        // Obtemos los valores de played desde la base de datos
-        String[] columns = {"played"};
-        String selection = "username=?";
-        String[] selectionArgs = {user.getUsername()};
 
-        Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
-
-        int played = 0;
-
-        if (cursor != null && cursor.moveToFirst()) {
-            played = cursor.getInt(cursor.getColumnIndex("played"));
-            cursor.close();
-        }
+        int played = getPlayed(user);
 
         // Incrementa los valores
         ContentValues values = new ContentValues();
         values.put("played", played + 1);
+
+        String selection = "username=?";
+        String[] selectionArgs = {user.getUsername()};
 
         // Actualiza la base de datos con los nuevos valores
         database.update("users", values, selection, selectionArgs);
     }
 
     public void updateWon(User user) {
-        // Obtemos los valores de won desde la base de datos
-        String[] columns = {"won"};
-        String selection = "username=?";
-        String[] selectionArgs = {user.getUsername()};
 
-        Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
-
-        int won = 0;
-
-        if (cursor != null && cursor.moveToFirst()) {
-            won = cursor.getInt(cursor.getColumnIndex("won"));
-            cursor.close();
-        }
+        int won = getWon(user);
 
         // Incrementa los valores
         ContentValues values = new ContentValues();
         values.put("won", won + 1);
+
+        String selection = "username=?";
+        String[] selectionArgs = {user.getUsername()};
 
         // Actualiza la base de datos con los nuevos valores
         database.update("users", values, selection, selectionArgs);
     }
 
     public void updateLost(User user) {
-        // Obtemos los valores de lost desde la base de datos
-        String[] columns = {"lost"};
-        String selection = "username=?";
-        String[] selectionArgs = {user.getUsername()};
 
-        Cursor cursor = database.query("users", columns, selection, selectionArgs, null, null, null);
-
-        int lost = 0;
-
-        if (cursor != null && cursor.moveToFirst()) {
-            lost = cursor.getInt(cursor.getColumnIndex("lost"));
-            cursor.close();
-        }
+        int lost = getLost(user);
 
         // Incrementa los valores
         ContentValues values = new ContentValues();
         values.put("lost", lost + 1);
+
+        String selection = "username=?";
+        String[] selectionArgs = {user.getUsername()};
 
         // Actualiza la base de datos con los nuevos valores
         database.update("users", values, selection, selectionArgs);
