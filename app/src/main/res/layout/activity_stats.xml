@@ -20,7 +20,6 @@
         android:id="@+id/played"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stats_played"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="40dp"/>
 
@@ -28,7 +27,6 @@
         android:id="@+id/won"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stats_won"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="40dp"/>
 
@@ -36,7 +34,6 @@
         android:id="@+id/lost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stats_lost"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="40dp"/>
 

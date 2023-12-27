@@ -17,6 +17,9 @@ import java.util.Locale;
 
 public class StatsActivity extends AppCompatActivity {
 
+    private UserRepository userRepository;
+    private String currentUsername;
+    private int played, won, lost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +37,28 @@ public class StatsActivity extends AppCompatActivity {
             recreate();
         }
 
+        //Pasamos el nombre del usuario actual en un archivo de preferencias compartidas
+        currentUsername = prefs.getString("UsuarioActual", "");
 
+        TextView usernameTextView = findViewById(R.id.textViewUsername);
+        usernameTextView.setText("Usuario Actual: " + currentUsername);
+
+        UserRepository userRepository = new UserRepository(this);
+        userRepository.open();
+
+        User currentUser = new User(currentUsername, ""); // No necesitamos la contraseña aquí
+        played = userRepository.getPlayed(currentUser);
+        won = userRepository.getWon(currentUser);;
+        lost = userRepository.getLost(currentUser);;
+
+        TextView play = findViewById(R.id.played);
+        play.setText("JUGADAS: " + String.valueOf(played));
+
+        TextView win = findViewById(R.id.won);
+        win.setText("GANADAS: " + String.valueOf(won));
+
+        TextView lose = findViewById(R.id.lost);
+        lose.setText("PERDIDAS: " + String.valueOf(lost));
 
     }
 
