@@ -102,7 +102,7 @@ public class UserRepository {
         return lost;
     }
 
-    public List<User> getTopThreeUsers() {
+    public List<User> getTopTenUsers() {
         SQLiteDatabase database = dbHelper.getReadableDatabase();
         List<User> topUsers = new ArrayList<>();
 

@@ -36,17 +36,29 @@ public class RankingActivity extends AppCompatActivity {
         }
 
         UserRepository userRepository = new UserRepository(this);
-        List<User> topUsers = userRepository.getTopThreeUsers();
-
-        TextView top1 = findViewById(R.id.player1);
-        StringBuilder topUsersText = new StringBuilder("Top 3 Usuarios:\n");
+        List<User> topUsers = userRepository.getTopTenUsers();
 
         for (int i = 0; i < topUsers.size(); i++) {
             User user = topUsers.get(i);
-            topUsersText.append(i + 1).append(". ").append(user.getUsername()).append(" - Victorias: ").append(user.getWon()).append("\n");
+
+            // Obtener los identificadores de los TextView dinámicamente
+            int playerTextViewId = getResources().getIdentifier("player" + (i + 1), "id", getPackageName());
+            int winTextViewId = getResources().getIdentifier("win" + (i + 1), "id", getPackageName());
+
+            // Obtener las referencias a los TextView correspondientes
+            TextView playerTextView = findViewById(playerTextViewId);
+            TextView winTextView = findViewById(winTextViewId);
+
+            // Establecer el texto en los TextView correspondientes
+            if (playerTextView != null) {
+                playerTextView.setText(user.getUsername());
+            }
+
+            if (winTextView != null) {
+                winTextView.setText("Victorias: " + user.getWon());
+            }
         }
 
-        top1.setText(topUsersText.toString());
     }
 
     @Override

@@ -42,9 +42,9 @@
     <string name="tutorial_low_number">The driver number is too low</string>
     <string name="tutorial_high_number">The driver number is too high</string>
     <string name="stats_title">STATS</string>
-    <string name="stats_played">PLAYED</string>
-    <string name="stats_won">WON</string>
-    <string name="stats_lost">LOST</string>
+    <string name="stats_played">PLAYED: </string>
+    <string name="stats_won">WON: </string>
+    <string name="stats_lost">LOST: </string>
     <string name="ranking_title">RANKING</string>
     <string-array name="languages_entries">
         <item>Spanish</item>
