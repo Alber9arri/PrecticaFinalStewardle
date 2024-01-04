@@ -1,6 +1,7 @@
 package com.example.practicafinalstewardle;
 
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -48,6 +49,7 @@ public class UserRepository {
         }
     }
 
+    @SuppressLint("Range")
     public int getPlayed(User user) {
         // Obtemos los valores de played desde la base de datos
         String[] columns = {"played"};
@@ -66,6 +68,7 @@ public class UserRepository {
         return played;
     }
 
+    @SuppressLint("Range")
     public int getWon(User user) {
         // Obtemos los valores de won desde la base de datos
         String[] columns = {"won"};
@@ -84,6 +87,7 @@ public class UserRepository {
         return won;
     }
 
+    @SuppressLint("Range")
     public int getLost(User user) {
         // Obtemos los valores de lost desde la base de datos
         String[] columns = {"lost"};
@@ -114,8 +118,8 @@ public class UserRepository {
 
         if (cursor != null && cursor.moveToFirst()) {
             do {
-                String username = cursor.getString(cursor.getColumnIndex("username"));
-                int won = cursor.getInt(cursor.getColumnIndex("won"));
+                @SuppressLint("Range") String username = cursor.getString(cursor.getColumnIndex("username"));
+                @SuppressLint("Range") int won = cursor.getInt(cursor.getColumnIndex("won"));
 
                 User user = new User(username, "");
                 user.setWon(won);
