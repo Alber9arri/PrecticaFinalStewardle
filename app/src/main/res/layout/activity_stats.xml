@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/alfa_slab_one"
         android:textSize="20sp"
+        android:textColor="@color/text"
         android:layout_marginHorizontal="90dp"
         android:text="@string/stats_title"/>
 
@@ -21,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:textColor="@color/text"
         android:layout_marginLeft="40dp"/>
 
     <TextView
@@ -28,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
+        android:textColor="@color/text"
         android:layout_marginLeft="40dp"/>
 
     <TextView
@@ -35,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
+        android:textColor="@color/text"
         android:layout_marginLeft="40dp"/>
 
 </RelativeLayout>

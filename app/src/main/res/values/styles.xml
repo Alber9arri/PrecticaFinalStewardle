@@ -10,5 +10,8 @@
     <style name="MenuItemTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="ListPreferenceDialogTitle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/black</item>
+    </style>
 
 </resources>

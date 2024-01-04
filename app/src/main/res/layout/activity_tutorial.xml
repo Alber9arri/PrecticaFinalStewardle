@@ -14,6 +14,7 @@
         android:fontFamily="@font/alfa_slab_one"
         android:textSize="20sp"
         android:layout_marginHorizontal="120dp"
+        android:textColor="@color/text"
         android:text="@string/tutorial"/>
 
     <TextView
@@ -21,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tutorial_introduction"
+        android:textColor="@color/text"
         android:layout_marginTop="50dp"/>
 
     <TextView
@@ -30,12 +32,14 @@
         android:fontFamily="@font/alfa_slab_one"
         android:textSize="16sp"
         android:layout_marginTop="230dp"
+        android:textColor="@color/text"
         android:text="@string/example"/>
 
     <TextView
         android:id="@+id/textNationality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/text"
         android:text="@string/tutorial_nationality"
         android:layout_marginTop="300dp"
         android:layout_marginLeft="90dp"/>
@@ -51,6 +55,7 @@
 
     <TextView
         android:id="@+id/textTeam"
+        android:textColor="@color/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tutorial_team"
@@ -70,6 +75,7 @@
 
     <TextView
         android:id="@+id/textNumberLows"
+        android:textColor="@color/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tutorial_previous_team"
@@ -90,6 +96,7 @@
     <TextView
         android:id="@+id/textNumberLow"
         android:layout_width="wrap_content"
+        android:textColor="@color/text"
         android:layout_height="wrap_content"
         android:text="@string/tutorial_high_number"
         android:layout_marginTop="535dp"
@@ -99,6 +106,7 @@
         android:id="@+id/numberLow"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:textColor="@color/text"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="520dp"
         android:layout_weight="1"
@@ -109,6 +117,7 @@
     <TextView
         android:id="@+id/textNumberHigh"
         android:layout_width="wrap_content"
+        android:textColor="@color/text"
         android:layout_height="wrap_content"
         android:text="@string/tutorial_low_number"
         android:layout_marginTop="615dp"
@@ -116,6 +125,7 @@
 
     <TextView
         android:id="@+id/numberHigh"
+        android:textColor="@color/text"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:gravity="center"
