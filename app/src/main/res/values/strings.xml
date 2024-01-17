@@ -34,7 +34,7 @@
     <string name="language_dialog">Seleciona el idioma</string>
     <string name="attempts">intentos</string>
     <string name="tutorial">TUTORIAL</string>
-    <string name="tutorial_introduction">Tienes que adivinar el piloto en 6 intentos.\n\n En cada intento se deberá elegir un piloto del desplegable, solo se muestran pilotos que hayan corrido en la temporada de 2023.\n\n Después de seleccionar un piloto el color de los recuadros cambiará, siguiendo el patrón que se muestra en el ejemplo inferior</string>
+    <string name="tutorial_introduction">Tienes que adivinar el piloto en 6 intentos.\n\n En cada intento se deberá elegir un piloto del desplegable, solo se muestran pilotos que hayan corrido desde la temporada de 2014 hasta la actualidad.\n\n Después de seleccionar un piloto el color de los recuadros cambiará, siguiendo el patrón que se muestra en el ejemplo inferior</string>
     <string name="example">EJEMPLO:</string>
     <string name="tutorial_nationality">El piloto es de nacionalidad española</string>
     <string name="tutorial_team">El piloto no ha corrido para Ferrari</string>

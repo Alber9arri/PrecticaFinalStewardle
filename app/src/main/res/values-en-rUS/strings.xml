@@ -34,7 +34,7 @@
     <string name="language_dialog">Select language</string>
     <string name="attempts">attempts</string>
     <string name="tutorial">TUTORIAL</string>
-    <string name="tutorial_introduction">You have to guess the driver in 6 attempts.\n\n In each attempt you must choose a driver from the drop-down list, only drivers who have raced in the 2023 season are shown.\n\n After selecting a driver, the color of the boxes will change, following the pattern shown in the example below</string>
+    <string name="tutorial_introduction">You have to guess the driver in 6 attempts.\n\n In each attempt you must choose a driver from the drop-down list, only drivers who have raced from the 2014 season to the present are shown.\n\n After selecting a driver, the color of the boxes will change, following the pattern shown in the example below</string>
     <string name="example">EXAMPLE:</string>
     <string name="tutorial_nationality">The pilot is of Spanish nationality</string>
     <string name="tutorial_team">The driver does not raced for Ferrari</string>
