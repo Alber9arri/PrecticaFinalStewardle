@@ -9,6 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.PrecticaFinalStewardle"
+        android:icon="@drawable/ic_launcher"
         tools:targetApi="31">
 
         <activity

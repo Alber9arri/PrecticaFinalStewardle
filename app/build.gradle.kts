@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.practicafinalstewardle"
+    namespace = "com.rinko.practicafinalstewardle"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.practicafinalstewardle"
+        applicationId = "com.rinko.practicafinalstewardle"
         minSdk = 25
         targetSdk = 34
         versionCode = 1

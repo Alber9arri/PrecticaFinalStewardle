@@ -46,6 +46,8 @@
     <string name="stats_won">WON: </string>
     <string name="stats_lost">LOST: </string>
     <string name="ranking_title">RANKING</string>
+    <string name="actual_user">The current user</string>
+    <string name="position">is in position</string>
     <string-array name="languages_entries">
         <item>Spanish</item>
         <item>English</item>
