@@ -336,9 +336,9 @@ public class GameActivity extends AppCompatActivity {
         //Comprueba que llevas menos de 6 intentos
         if(intentos < 6){
             //Recorre el array de todos los pilotos hasta encontrar el piloto introducido
-            for(int i = 0; i<drivers.size(); i++) {
+            for(int i = 0; i<drivers.size() && drivers.get(i) != null; i++) {
                 driverName = drivers.get(i).getAsJsonObject().get("firstName").toString().replaceAll("\"", "") + " " + drivers.get(i).getAsJsonObject().get("lastName").toString().replaceAll("\"", "");
-                if (input.equals(driverName)) {
+                if (input.equals(driverName) && driver != null) {
                     //Compara la edad del piloto introducido con el piloto secreto
                     TextView textView = findViewById(idCount);
                     textView.setText(String.valueOf(drivers.get(i).getAsJsonObject().get("age")));
@@ -416,7 +416,8 @@ public class GameActivity extends AppCompatActivity {
                 }
             }
             driverInput.setText("");
-            driverName = driver.getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+driver.getAsJsonObject().get("lastName").toString().replaceAll("\"", "");
+            if(driver != null) driverName = driver.getAsJsonObject().get("firstName").toString().replaceAll("\"", "")+" "+driver.getAsJsonObject().get("lastName").toString().replaceAll("\"", "");
+            else driverName = "";
             if(input.equals(driverName)){
                 //Si se acierta el piloto se muestra el boton de volver a jugar y el mensaje de has ganado
                 TextView textView = findViewById(R.id.message);
@@ -433,7 +434,7 @@ public class GameActivity extends AppCompatActivity {
             }
             else{
                 //Si se llega a los 6 intentos se muestra el boton de volver a jugar, con el mensaje de has perdido y el nombre del piloto secreto
-                if (intentos == 6){
+                if (intentos == 6 && driver != null){
                     driverInput.setVisibility(View.INVISIBLE);
                     Button boton = findViewById(R.id.buttonInput);
                     boton.setVisibility(View.INVISIBLE);
