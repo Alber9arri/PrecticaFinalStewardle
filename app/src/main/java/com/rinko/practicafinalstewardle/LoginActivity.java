@@ -1,26 +1,36 @@
 package com.rinko.practicafinalstewardle;
 
+import static java.lang.Thread.sleep;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 
 
 import java.util.Locale;
@@ -34,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
     private UserRepository userRepository;
     private SharedPreferences preferences;
     private FrameLayout adContainerView;
+    private InterstitialAd mInterstitialAd;
+    Button btnInter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +76,8 @@ public class LoginActivity extends AppCompatActivity {
         userRepository = new UserRepository(this);
         userRepository.open();
 
+        LoadInterticialAd();
+
         //Lógica botón login
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,10 +90,13 @@ public class LoginActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showInterticial();
                 registerUser();
             }
         });
+
         loadBanner();
+        //LoadInterticialAd();
     }
 
     @Override
@@ -89,7 +106,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Este método se usa para loguear a los usuarios cuando ya están registrados
-    private void loginUser() {
+    private void loginUser(){
+        showInterticial();
         String username = editTextUsername.getText().toString();
         //Aqui se hace uso de la clase HashPassword para hacer un uso seguro de las contraseñas
         String password = HashPassword.sha256(editTextPassword.getText().toString());
@@ -165,6 +183,72 @@ public class LoginActivity extends AppCompatActivity {
         // Start loading the ad in the background.
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
+    }
+
+    private void showInterticial(){
+        if (mInterstitialAd != null) {
+            mInterstitialAd.show(LoginActivity.this);
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+    }
+
+    private void LoadInterticialAd(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,"ca-app-pub-8457482165373954/3116074699", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+
+                        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback(){
+                            @Override
+                            public void onAdClicked() {
+                                // Called when a click is recorded for an ad.
+                                //Log.d(TAG, "Ad was clicked.");
+                            }
+
+                            @Override
+                            public void onAdDismissedFullScreenContent() {
+                                // Called when ad is dismissed.
+                                // Set the ad reference to null so you don't show the ad a second time.
+                                //Log.d(TAG, "Ad dismissed fullscreen content.");
+                                mInterstitialAd = null;
+                                LoadInterticialAd();
+                            }
+
+                            @Override
+                            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                // Called when ad fails to show.
+                                //Log.e(TAG, "Ad failed to show fullscreen content.");
+                                mInterstitialAd = null;
+                            }
+
+                            @Override
+                            public void onAdImpression() {
+                                // Called when an impression is recorded for an ad.
+                                //Log.d(TAG, "Ad recorded an impression.");
+                            }
+
+                            @Override
+                            public void onAdShowedFullScreenContent() {
+                                // Called when ad is shown.
+                                //Log.d(TAG, "Ad showed fullscreen content.");
+                            }
+                        });
+                        //Log.i(TAG, "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        //Log.d(TAG, loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
     }
 }
 
