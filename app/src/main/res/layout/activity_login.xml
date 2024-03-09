@@ -94,5 +94,10 @@
         android:layout_marginHorizontal="315dp"
         android:layout_marginTop="730dp"
         android:src="@drawable/stewardle" />
+    <FrameLayout
+        android:id="@+id/banner"
+        android:layout_width="600dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"></FrameLayout>
 
 </RelativeLayout>

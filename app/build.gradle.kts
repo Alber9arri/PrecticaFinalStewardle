@@ -47,4 +47,5 @@ dependencies {
     implementation("androidx.preference:preference:1.1.1")
     implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.google.android.gms:play-services-ads:22.6.0")
 }
