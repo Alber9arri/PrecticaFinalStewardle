@@ -142,7 +142,7 @@ public class StatsActivity extends AppCompatActivity {
         // Create a new ad view.
         AdView adView = new AdView(this);
         adView.setAdSize(getAdSize());
-        adView.setAdUnitId("ca-app-pub-8457482165373954/5626725959");
+        adView.setAdUnitId("ca-app-pub-8457482165373954/9019138063");
 
         // Replace ad container with new ad view.
         adContainerView.removeAllViews();
