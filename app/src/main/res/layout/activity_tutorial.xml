@@ -134,5 +134,10 @@
         android:layout_marginHorizontal="15dp"
         android:text="33"
         android:background="@color/higher"/>
+    <FrameLayout
+        android:id="@+id/banner"
+        android:layout_width="600dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="660dp"></FrameLayout>
 
 </RelativeLayout>

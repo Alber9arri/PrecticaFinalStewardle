@@ -16,4 +16,5 @@
         android:entryValues="@array/languages_values"
         android:defaultValue="es"
         android:theme="@style/ListPreferenceDialogTitle"/>
+
 </PreferenceScreen>
