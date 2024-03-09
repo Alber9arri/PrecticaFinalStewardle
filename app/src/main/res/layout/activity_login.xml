@@ -98,6 +98,6 @@
         android:id="@+id/banner"
         android:layout_width="600dp"
         android:layout_height="100dp"
-        android:layout_marginTop="200dp"></FrameLayout>
+        android:layout_marginTop="640dp"></FrameLayout>
 
 </RelativeLayout>

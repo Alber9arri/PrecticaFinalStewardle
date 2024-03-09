@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                 registerUser();
             }
         });
+        loadBanner();
     }
 
     @Override
