@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "725046745619",
+    "project_id": "stewardle-6c783",
+    "storage_bucket": "stewardle-6c783.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725046745619:android:7bc831a64630b337603de6",
+        "android_client_info": {
+          "package_name": "com.rinko.practicafinalstewardle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRWmRsoEcpdFs2fKWTCakoaARKlCzPB78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
