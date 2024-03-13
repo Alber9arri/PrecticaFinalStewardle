@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LoadInterticialAd();
                 showInterticial();
                 registerUser();
             }
@@ -196,7 +197,7 @@ public class LoginActivity extends AppCompatActivity {
     private void LoadInterticialAd(){
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-8457482165373954/3116074699", adRequest,
+        InterstitialAd.load(this,"ca-app-pub-8457482165373954/9943678241", adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

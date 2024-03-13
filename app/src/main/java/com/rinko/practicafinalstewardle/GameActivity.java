@@ -95,7 +95,6 @@ public class GameActivity extends AppCompatActivity {
         });
         LoadInterticialAd();
         loadBanner();
-
         showInterticial();
         //Configuración de idioma y modo oscuro en base a las preferencias
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -483,6 +482,8 @@ public class GameActivity extends AppCompatActivity {
 
     //Metodo para reiniciar el juego asociado al boton de volver a jugar
     public void playAgain(View view) {
+        LoadInterticialAd();
+        showInterticial();
         clean();
         adContainerView = findViewById(R.id.banner1);
         loadBanner();
