@@ -154,7 +154,8 @@ public class GameActivity extends AppCompatActivity {
                     JsonParser jsonParser = new JsonParser();
                     JsonObject jsonObject = jsonParser.parse(responseData).getAsJsonObject();
                     Set<String> keys = jsonObject.keySet();
-
+                    jsonObject.get("colapinto").getAsJsonObject().addProperty("nationality", "ar");
+                    Log.e(TAG, String.valueOf(jsonObject.get("colapinto")));
                     //Obtener los datos de los pilotos y los nombres para el desplegable de autocompletar
                     for (String key : keys) {
                         drivers.add(jsonObject.get(key));
@@ -384,6 +385,7 @@ public class GameActivity extends AppCompatActivity {
                     else textView.setBackgroundColor(Color.GREEN);
                     idCount++;
                     //Compara la nacionalidad de ambos pilotos
+                    Log.e(TAG, "aaaaaaaaaaaaaa");
                     @SuppressLint("WrongViewCast") SVGImageView svgImageView = findViewById(idCount);
                     SVG svg = SVG.getFromInputStream(getResources().openRawResource(getResources().getIdentifier(drivers.get(i).getAsJsonObject().get("nationality").toString().replaceAll("\"", ""), "raw", getPackageName())));
                     svgImageView.setSVG(svg);
