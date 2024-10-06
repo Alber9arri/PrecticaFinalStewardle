@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
             getResources().updateConfiguration(config, getResources().getDisplayMetrics());
             recreate();
         }
+        registerUser();
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
